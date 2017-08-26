@@ -1,0 +1,38 @@
+{
+
+  "parceros": [
+
+   { "nombre": "Jhon",
+     "edad": "19", 
+     "ocupacion": "programador"
+
+   },
+
+
+   { "nombre": "Mateo",
+     "edad": "19", 
+     "ocupacion": "programador"
+
+   },
+
+
+   { "nombre": "Bryan",
+     "edad": "21", 
+     "ocupacion": "estudiante"
+
+   }
+
+   ],
+
+
+   "Deportes": [
+  
+      {"deporte":"Fútbol"},
+      {"deporte":"Skate"},
+      {"deporte":"Tennis"}    
+
+   ] 
+
+
+
+}

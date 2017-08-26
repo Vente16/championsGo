@@ -1,0 +1,46 @@
+<aside ng-controller="menuControlador">
+    <div id="sidebar" class="nav-collapse">
+
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="sub-menu dcjq-parent-li">
+                    <a href="javascript:;" class="dcjq-parent">
+                        <i class="fa fa-futbol-o"></i>
+                        <span>ChampionsGo!</span> 
+                    </a>
+                </li>
+                 <li class="sub-menu dcjq-parent-li">
+                    <a href="javascript:;" class="dcjq-parent" ng-class="navClass('listado',true)">
+                        <i class="fa fa-trophy"></i>
+                        <span>Torneos</span>
+                        <span class="dcjq-icon"></span>
+                    </a>
+                    <ul class="sub" ng-style="{display:expand('listado')}">
+                        <li><a href="#/">Mis torneos</a></li>
+                        <li><a href="#listado">Buscar torneos</a></li>
+                        
+                    </ul>
+                     
+                </li>
+
+                  <li class="sub-menu dcjq-parent-li">
+                    <a href="javascript:;" class="dcjq-parent" ng-class="navClass('listado',true)">
+                        <i class="fa fa-users"></i>
+                        <span>Equipos</span>
+                        <span class="dcjq-icon"></span>
+                    </a>
+                    <ul class="sub" ng-style="{display:expand('listado')}">
+                        <li><a href="#/">Mi equipo</a></li>
+                        <li><a href="#listado">Buscar equipos</a></li>
+                        
+                    </ul>
+                     
+                </li>
+            </ul>
+
+
+        </div>
+        
+
+    </div>
+</aside>
