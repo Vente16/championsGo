@@ -1,6 +1,5 @@
 ChampionsGo!
-
-=========
+============
 
 ```
 ¿Qué es championsGo?
