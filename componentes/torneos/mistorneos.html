@@ -1,5 +1,5 @@
-<div class="menuPpal" ng-include='"templates/header.html"'></div>
-<div ng-include='"templates/menu.html"'></div><br><br>
+<div class="menuPpal" ng-include="'templates/header.html'"></div>
+<div ng-include="'templates/menu.html'"></div><br><br>
 
 <section id="main-content">
     <section class="wrapper" >
@@ -20,12 +20,12 @@
 		        	 <div ng-pagination="torneo in mistorneos" ng-pagination-size="5">
 		        	      <div class="torneos">
 		        	        <img ng-src="{{torneo.logo}}" class="imagenTorneo"><br>
-		                    <h3><a href="" class="btn btn-primary">Cambiar logo</a></h3>
+		                    <h3><a href="#/cambiarlogo" class="btn btn-primary">Cambiar logo</a></h3>
 		        	 	    <h4><strong>Nombre del torneo:</strong> {{torneo.nombreTorneo}} </h4>
 		        	 	    <h4><strong> Cantidad de equipos:</strong> {{torneo.cantidadEquipos}}</h4><br>
-		        	 	    <a href="" class="btn btn-info glyphicon glyphicon-search"></a>
-		        	 	    <a href="" class="btn btn-success glyphicon glyphicon-edit"></a>
-		        	 	    <button class="btn btn-danger glyphicon glyphicon-trash"></button><br><br>
+		        	 	    <a href="#/infoTorneo" class="btn btn-info glyphicon glyphicon-search acciones-iconos"></a>
+		        	 	    <a href="" class="btn btn-success glyphicon glyphicon-edit acciones-iconos"></a>
+		        	 	    <button class="btn btn-danger glyphicon glyphicon-trash acciones-iconos"></button><br><br>
 		        	      </div><br>
 		        	 </div>
 		            <ng-pagination-control pagination-id="mistorneos"></ng-pagination-control>

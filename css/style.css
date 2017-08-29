@@ -6252,13 +6252,34 @@ section#perfil{
     width: 50%;
 }
 
-.cambioLogoTorneo {
-  
-
-
-}
-
 .alertas {
 
     width: 50%;
+}
+
+.acciones-iconos {
+
+    border-radius: 50px;
+}
+
+.infoT {
+
+    border-top: 2px solid #f05f40;
+    border-bottom: 2px solid #f05f40;
+    border-width: 50%;
+
+}
+
+@media (min-width:270px) and (max-width: 628px){
+  
+    .nombret{
+
+        display: none;
+    }
+}
+
+.tabla-equipos {
+
+      width: 50%;
+      height: 100px;
 }
