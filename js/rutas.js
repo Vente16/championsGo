@@ -33,6 +33,30 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
         templateUrl: "componentes/torneos/buscarTorneo.html", 
        //   controller: "controladorPrincipal"
     })
+    .when("/miEquipo", {
+        templateUrl: "componentes/equipos/miEquipo.html", 
+        controller: "miEquipoCtr"
+    })
+    .when("/solicitudesEquipo", {
+        templateUrl: "componentes/equipos/solicitudes.html", 
+       //   controller: "controladorPrincipal"
+    })
+    .when("/buscarEquipos", {
+        templateUrl: "componentes/equipos/buscarEquipos.html", 
+       //   controller: "controladorPrincipal"
+    })
+     .when("/nuevoEquipo", {
+        templateUrl: "componentes/equipos/nuevoEquipo.html", 
+        controller: "nuevoEquipoCtr"
+    })
+      .when("/miPerfil", {
+        templateUrl: "componentes/perfiles/miPerfil.html", 
+       // controller: "nuevoEquipoCtr"
+    })
+      .when("/cambiarFoto", {
+        templateUrl: "componentes/perfiles/cambiarFoto.html", 
+       // controller: "nuevoEquipoCtr"
+    })
     .when("/404", {
         templateUrl: "componentes/comunes/404.tmpl.html", 
         controller: "controladorPrincipal"

@@ -1,0 +1,33 @@
+<div class="menuPpal" ng-include="'templates/header.html'"></div>
+<div ng-include="'templates/menu.html'"></div><br><br>
+
+<section id="main-content">
+    <section class="wrapper" >
+       
+        <div id="usuarios">
+	        <div class="encabezado">
+	        	
+	        </div><br>
+
+	        <div id="cuerpo">
+		      <center>
+		         <form name="formulario" ng-model="formulario" ng-submit="registrarEquipo()" novalidate>
+
+                   <div class="form-group" ng-class="{ 'has-error': formulario.$submitted && file == undefined
+                        || formulario.logo.$dirty, 'has-success': file != undefined && formulario.logo.$dirty || file != undefined && formulario.$submitted || file != undefined && !formulario.$submitted }">
+                  <label for="logo" class="control-label">Foto de perfil</label>
+                  <input type="file" class="form-control formularios" get-file="file" ng-model="logo" name="logo" required><br>
+
+                  <div class="alert alert-danger alertas" ng-show="formulario.$submitted && file == undefined">Por favor seleccione foto de perfil</div>
+              </div>  
+      
+             
+                 <button type="submit" class="btn btn-success">Guardar</button>
+
+              </form>
+		   </center>
+		        
+	        </div>
+        </div>
+    </section>
+</section>
