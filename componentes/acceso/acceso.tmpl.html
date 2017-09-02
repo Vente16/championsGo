@@ -1,4 +1,4 @@
-<div id="login" ng-controller="accesoControlador">
+<div id="login">
 	<div class="container">
 		<div class="row">
 	        <div class="spinner center" ng-show="loading"><img src="images/ico_preload.gif"></div> 
@@ -6,23 +6,19 @@
 				<div class="box">
 				<br/>
 					<div class="account-wall">
-					      <center>
-					      <img src="images/logo.jpg" style="width: 200px">
-					      </center>
-						<form class="form-signin" ng-submit="login()" ng-model="formulario" name="formularo" novalidate>
+					   <form class="form-signin" ng-submit="login()" ng-model="formulario" name="formularo">
 							<div class="form-group has-feedback" ng-class="{'has-error': formulario.email.$error.required && formulario.$submitted && formulario.email.$dirty, 'has-success': formulario.email.$dirty && formulario.email.$valid}">
 							<input ng-model="email" class="form-control" type="text" name="email" placeholder="Usuario" required/>
 							<i class="glyphicon glyphicon-user form-control-feedback"></i>
-							<div ng-show="formulario.email.$error.$required && formulario.email.$dirty" class="alert alert-danger"> 
-                                      Campo requerido.
-								</div>
-							</div>
+
 							<div class="form-group has-feedback">
 		    				<input ng-model="usuario.password" class="form-control" type="password" name="pass" placeholder="Contraseña" required />
 		    				<i class="glyphicon glyphicon-asterisk form-control-feedback"></i>
 		    				</div>
-							<button class="btn bt btn-info btn-block" type="submit">ACCEDER</button>
-						</form>
+		    				<div align="center" class="letrasRegistro">¿Aún no tienes cuenta? <a href="#/registro"><strong>Regístrate aquí.</strong></a></div><br>
+							<button class="btn bt btn-info btn-block" type="submit">ACCEDER</button> <br>	
+						    <!--<div class="alert alert-danger" align="center">Correo o contraseña inválido.</div>-->
+				        </form>
 					</div>			
 				</div>				    
 			</div>

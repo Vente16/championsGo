@@ -9,6 +9,10 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     	templateUrl: "componentes/acceso/acceso.tmpl.html", 
     	controller: "controladorPrincipal"
     })
+     .when("/registro",{
+      templateUrl: "componentes/acceso/registroUsuarios.html", 
+      controller: "registroUsuariosCtr"
+    })
     .when("/",{
     	controller: 'misTorneosCtr', 
     	templateUrl: 'componentes/torneos/mistorneos.html'

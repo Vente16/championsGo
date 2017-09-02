@@ -6280,6 +6280,24 @@ section#perfil{
 
 .tabla-equipos {
 
-      width: 50%;
-      height: 100px;
+    width: 50%;
+    height: 100px;
 }
+
+.letrasRegistro {
+
+    font-size: 15px;
+    font-family: sans-serif;
+    border-left: 5px solid #9b73db; 
+}
+
+.letrasRegistro a {
+
+   color: #9b73db;          
+}
+
+.escondeimg {
+
+    display: none;
+}
+
