@@ -1,4 +1,4 @@
-<div ng-controller="accesoControlador" >
+<div ng-controller="nameCtr">
     <header class="header fixed-top clearfix" class="ng-cloak">
         <div class="brand">
             <a href="index.html" class="logo">
@@ -12,11 +12,11 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fa fa-user"></i>
-                        <span class="username">Nombre usuarios</span>
+                        <span class="username">{{nombre}}</span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
-                        <li><a><i class="fa fa-pencil-square-o"></i>Actualizar mis datos</a></li>
+                     <!--<li><a><i class="fa fa-pencil-square-o"></i>Actualizar mis datos</a></li> -->
                      <li><a href="" ng-click="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
 
 

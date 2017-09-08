@@ -22,7 +22,33 @@ app.controller('controladorPrincipal', ['$rootScope', '$scope', 'sesionesControl
 }]);
 
 // controlador para la navegacion
-app.controller('menuControlador', ['$scope', '$location','sesionesControl', function ($scope, $location, sesionesControl) {  
+app.controller('menuControlador', ['$scope', '$location','localStorageService','loginService', function ($scope, $location, localStorageService, loginService) {  
+ 
+      
+   var obtenerR = localStorageService.get("user");
+
+   if (obtenerR == null) {
+    
+      var info = {"metodo": "consultarUser", "email": localStorageService.get("email")};
+
+      loginService.consultarUser(info).then(function(res){
+               
+        $scope.rol = res.rol;
+
+      });
+
+    }else {
+
+     $scope.rol = obtenerR.rol; 
+
+    } 
+   
+
+
+
+
+
+
   $scope.navClass = function (page, isParent) {    
     var currentRoute = $location.path().substring(1) || 'home';
     if(isParent){        

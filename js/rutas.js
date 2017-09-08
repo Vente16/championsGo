@@ -2,20 +2,21 @@
 app.config(['$locationProvider','$routeProvider', function ($locationProvider, $routeProvider) {
 
   $routeProvider
-    /*.when("/",{
-      templateUrl: "componentes/acceso/acceso.tmpl.html", 
-      controller: "controladorPrincipal"}) */
-    .when("/login",{
+    .when("/",{
     	templateUrl: "componentes/acceso/acceso.tmpl.html", 
-    	controller: "controladorPrincipal"
+    	controller: "loginCtr"
+    })
+    .when("/inicio",{
+      templateUrl: "templates/home.html", 
+      controller: "inicioCtr"
     })
      .when("/registro",{
       templateUrl: "componentes/acceso/registroUsuarios.html", 
       controller: "registroUsuariosCtr"
     })
-    .when("/",{
-    	controller: 'misTorneosCtr', 
-    	templateUrl: 'componentes/torneos/mistorneos.html'
+    .when("/misTorneos",{
+    	templateUrl: 'componentes/torneos/mistorneos.html',
+      controller: 'misTorneosCtr' 
     })
     .when("/nuevoTorneo",{
     	controller: 'nuevoTorneoCtr', 

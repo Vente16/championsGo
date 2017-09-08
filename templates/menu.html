@@ -4,7 +4,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li class="sub-menu dcjq-parent-li">
-                    <a href="javascript:;" class="dcjq-parent">
+                    <a href="#/inicio" class="dcjq-parent">
                         <i class="fa fa-futbol-o"></i>
                         <span>ChampionsGo!</span> 
                     </a>
@@ -16,24 +16,25 @@
                         <span class="dcjq-icon"></span>
                     </a>
                     <ul class="sub" ng-style="{display:expand('listado')}">
-                        <li><a href="#/">Mis torneos</a></li>
+                        <li ng-show="rol == 'adminTorneo'"><a href="#/misTorneos">Mis torneos</a></li>
                         <li><a href="#/buscarTorneo">Buscar torneos</a></li>
-                        <li><a href="#/solicitudesTorneos">Solicitudes de inscripción</a></li>
-                        
+                        <li ng-show="rol == 'adminTorneo'"><a href="#/solicitudesTorneos">Solicitudes de inscripción</a></li>
+                     
                     </ul>
                      
                 </li>
 
-                 <!-- <li class="sub-menu dcjq-parent-li">
+                  <li class="sub-menu dcjq-parent-li" ng-show="rol == 'tecnico' || rol == 'jugador'">
                     <a href="javascript:;" class="dcjq-parent" ng-class="navClass('listado',true)">
                         <i class="fa fa-users"></i>
                         <span>Equipos</span>
                         <span class="dcjq-icon"></span>
                     </a>
                     <ul class="sub" ng-style="{display:expand('listado')}">
-                        <li><a href="#/miEquipo">Mi equipo</a></li>
+                        <li ng-show="rol == 'tecnico'"><a href="#/miEquipo">Mi equipo</a></li>
                         <li><a href="#/buscarEquipos">Buscar equipos</a></li>
-                        <li><a href="#/solicitudesEquipo">Solicitudes de inscripción</a></li>
+                       <li ng-show="rol == 'tecnico'"><a href="#/solicitudesEquipo">Solicitudes de inscripción</a></li>
+                       <li ng-show="rol == 'jugador'"><a href="#">Mis solicitudes</a></li>
                     </ul>
                      
                 </li>
@@ -50,7 +51,7 @@
                         <li><a href="#/miPerfil">Ver perfil</a></li>
                     </ul>
                      
-                </li> -->
+                </li>
             </ul>
 
 
