@@ -26,9 +26,13 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     	templateUrl: "componentes/torneos/solicitudes.html", 
        //	controller: "controladorPrincipal"
     })
-    .when("/infoTorneo", {
+    .when("/infoTorneo/:id", {
         templateUrl: "componentes/torneos/infotorneo.html", 
-       //   controller: "controladorPrincipal"
+        controller: "infoTorneoCtr"
+    })
+      .when("/actualizarTorneo/:id", {
+        templateUrl: "componentes/torneos/actualizarTorneo.html", 
+        controller: "actualizarTorneoCtr"
     })
     .when("/cambiarlogo", {
         templateUrl: "componentes/torneos/cambiarlogo.html", 

@@ -8,73 +8,32 @@ function misTorneosService($http, $q){
     return {
 
      consultarMisTorneos: consultarMisTorneos,
-     registrarTorneo: registrarTorneo
+     registrarTorneo: registrarTorneo,
+     consultarTorneo: consultarTorneo,
+     actualizarDatos: actualizarDatos,
+     eliminarTorneo:  eliminarTorneo
 
     }
 
 
-  function consultarMisTorneos(){
+  function consultarMisTorneos(user){
 
     var defer = $q.defer();
     var promesa = defer.promise;
-
-    var misTorneos = [
     
-    {
-        logo: "images/mundial.jpg",
-        nombreTorneo: "Mundial 2018",
-        cantidadEquipos: "10"
-    },
-    {
-        logo: "images/euro.jpg",
-        nombreTorneo: "Eurocopa",
-        cantidadEquipos: "12"
-    },
-    {
-        logo: "images/copaamerica.jpg",
-        nombreTorneo: "Copa ámerica 2016",
-        cantidadEquipos: "14"
-    },
-    {
-        logo: "images/champions.png",
-        nombreTorneo: "Champions league",
-        cantidadEquipos: "16"
-    },
-    {
-        logo: "images/europaleague.jpg",
-        nombreTorneo: "Europa league",
-        cantidadEquipos: "18"
-    },
-    {
-        logo: "images/españa.png",
-        nombreTorneo: "La liga",
-        cantidadEquipos: "20"
-    },
-    {
-        logo: "images/premier.png",
-        nombreTorneo: "Premier league",
-        cantidadEquipos: "22"
-    },
-    {
-        logo: "images/liga 1.png",
-        nombreTorneo: "Liga 1",
-        cantidadEquipos: "24"
-    },
-    {
-        logo: "images/seriea.jpg",
-        nombreTorneo: "Serie A",
-        cantidadEquipos: "26"
-    },
-    {
-        logo: "images/ligaagula.jpg",
-        nombreTorneo: "Liga águila",
-        cantidadEquipos: "28"
-    },
+    $http({
+ 
+         method: "POST",
+         url: "api/controllers/torneos.controller.php",
+         data: "data="+JSON.stringify(user),
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
+       }).then(function(res){
+
+           defer.resolve(res.data);
+
+       });
     
-   ];
-
-    defer.resolve(misTorneos);
 
     return promesa;
 
@@ -100,9 +59,79 @@ function misTorneosService($http, $q){
              console.log(res.data);
          }); 
 
-        
-
    }
+
+  function consultarTorneo(info){
+
+    var defer = $q.defer();
+    var promesa = defer.promise;
+    
+    $http({
+ 
+         method: "POST",
+         url: "api/controllers/torneos.controller.php",
+         data: "data="+JSON.stringify(info),
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+       }).then(function(res){
+
+           defer.resolve(res.data);
+
+       });
+    
+
+    return promesa;
+
+  } 
+
+   function actualizarDatos(datos){
+
+    var defer = $q.defer();
+    var promesa = defer.promise;
+    
+    $http({
+ 
+         method: "POST",
+         url: "api/controllers/torneos.controller.php",
+         data: "data="+JSON.stringify(datos),
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+       }).then(function(res){
+
+           defer.resolve(res.data);
+
+       });
+    
+
+    return promesa;
+
+  } 
+
+    function eliminarTorneo(id){
+
+    var defer = $q.defer();
+    var promesa = defer.promise;
+    
+    $http({
+ 
+         method: "POST",
+         url: "api/controllers/torneos.controller.php",
+         data: "data="+JSON.stringify(id),
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+       }).then(function(res){
+
+           defer.resolve(res.data);
+
+       });
+    
+
+    return promesa;
+
+  } 
+
+
+
 
 
 

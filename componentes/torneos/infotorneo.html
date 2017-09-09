@@ -11,21 +11,23 @@
 
 	        <div id="cuerpo">
 		        <center>
+
+                <h1>{{test}}</h1>
                <table class="table table-hover infoT">
-               	   
-               	   <tbody>
+               	    
+               	   <tbody ng-repeat="info in torneo">
                	   	     <tr>
                	   	         <td>
                                <div>
-                                  <img src="images/liga 1.png" alt="" width="100px">
-                                    <h2 class="nombret">Testing</h2> 
+                                  <img src="{{info.logo}}" alt="" width="100px">
+                                    <h2 class="nombret">{{info.nombre_torneo}}</h2> 
                                </div>
                              </td>
                	   	     	 <td>
                               <div>
-                                 <p>Número de equipos: 10 </p><br>
-                                 <p>Zona: Medellín</p> <br>
-                                 <p>Equipos inscritos: 5 </p>
+                                 <p>Número de equipos: {{info.numero_equipos}} </p><br>
+                                 <p>Zona: {{info.zona}}</p> <br>
+                                 <p>Equipos inscritos: {{info.equipos_inscritos}} </p>
                               </div>
 
                            </td> 

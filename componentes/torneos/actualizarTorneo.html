@@ -1,0 +1,73 @@
+<div class="menuPpal" ng-include='"templates/header.html"'></div>
+<div ng-include='"templates/menu.html"'></div><br><br>
+
+<section id="main-content">
+    <section class="wrapper" >
+       
+        <div id="usuarios" >
+	        <div class="encabezado">
+	        	
+	        </div><br>
+
+	        <div id="cuerpo">
+
+		        <center ng-repeat="info in torneo">
+                      
+                      <h1>{{id}}</h1>
+
+		        	<form name="formulario" ng-model="formulario" ng-submit="actualizarTorneo()"  novalidate>
+
+				       <div class="form-group" ng-class="{ 'has-error': formulario.nombre.$invalid && formulario.$submitted ||
+				       formulario.nombre.$dirty && formulario.nombre.$error.required && formulario.nombre.$error.required && formulario.$submitted, 'has-success': formulario.nombre.$valid && formulario.nombre.$dirty || !formulario.nombre.$dirty}">
+				          <label for="nombre" class="control-label">Nombre</label>
+				       	  <input type="text" class="form-control formularios" ng-model="info.nombre_torneo" name="nombre" id="nombre" required><br>
+
+				           <div class="alert alert-danger alertas" ng-show="formulario.nombre.$error.required && formulario.$submitted ">Por favor rellene el campo</div>
+
+				      </div>
+	                             
+				    <div class="form-group" ng-class="{'has-error': formulario.zona.$error.required && formulario.$submitted, 'has-success': formulario.zona.$valid}">
+				         <label for="zona" class="control-label">Seleccione la zona donde hará el torneo</label>
+				          <select class="form-control formularios"  ng-model="info.zona" name="zona" id="zona" required>
+				          	   <option value="Medellín">Medellín </option>
+				          	   <option value="Barbosa">Barbosa </option>
+				          	   <option value="Copacabana">Copacabana </option>
+				          	   <option value="Girardota">Girardota </option>
+				          	   <option value="Bello">Bello </option>
+				          	   <option value="Itagüí">Itagüí </option>
+				          	   <option value="Envigado">Envigado </option>
+				          	   <option value="Sabaneta">Sabaneta </option>
+				          	   <option value="La estrella">La estrella </option>
+				          	   <option value="Caldas">Caldas </option>
+
+				          </select><br>
+				          <div class="alert alert-danger alertas" ng-show="formulario.zona.$error.required && formulario.$submitted">Debes selecionar una zona.</div>
+				           
+	              </div><br>
+
+	               <div class="form-group" ng-class="{'has-error': formulario.equipos.$error.required && formulario.$submitted, 'has-success': formulario.equipos.$valid}">
+				         <label for="equipos" class="control-label">Seleccione el número de equipos que tendrá el torneo</label>
+				          <select class="form-control formularios"  ng-model="info.numero_equipos" id="equipo" name="equipos" required>
+				          	   <option value="8">8</option>
+				          	   <option value="10">10</option>
+				          	   <option value="12">12</option>
+				          	   <option value="14">14</option>
+				          	   <option value="16">16</option>
+				          	   <option value="18">18</option>
+				          	   <option value="20">20</option>
+				          	   <option value="22">22</option>
+				          	
+				          </select><br>
+				          <div class="alert alert-danger alertas" ng-show="formulario.equipos.$error.required && formulario.$submitted">Debes selecionar el número de equipos.</div>
+				           
+	              </div> 
+			       
+        			 <button type="submit" class="btn btn-info">Actualizar datos</button>
+
+                    </form>
+		     </center>
+		        
+	        </div>
+        </div>
+    </section>
+</section>

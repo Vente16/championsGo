@@ -1,8 +1,8 @@
 app.controller('nuevoTorneoCtr', nuevoTorneoCtr);
 
-nuevoTorneoCtr.$inject = ['$scope', 'misTorneosService', 'localStorageService'];
+nuevoTorneoCtr.$inject = ['$scope', 'misTorneosService', 'localStorageService', '$location'];
 
-function nuevoTorneoCtr($scope, misTorneosService, localStorageService){
+function nuevoTorneoCtr($scope, misTorneosService, localStorageService, $location){
 
    //$scope.validarNombre = /[(a-zA-Z0-9)]$/;
 
@@ -26,6 +26,12 @@ function nuevoTorneoCtr($scope, misTorneosService, localStorageService){
         //console.log($scope.torneo);
 
         misTorneosService.registrarTorneo($scope.torneo);
+        alertify.alert('¡Correcto!', 'Torneo guardado con éxito.', function(){ 
+          alertify.success('Correcto'); 
+          location.href = "http://localhost/championsGo/#/misTorneos"; 
+        });
+
+       
 
     }
 
@@ -36,16 +42,18 @@ function nuevoTorneoCtr($scope, misTorneosService, localStorageService){
 
   angular.element(document).ready(function () {
           
-           function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+   function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
+      reader.onload = function (e) {
+      $('#blah').attr('src', e.target.result);
+      
+      }
 
-            reader.readAsDataURL(input.files[0]);
-        }
+      reader.readAsDataURL(input.files[0]);
+     }
+
     }
 
     $("#imgInp").change(function(){
