@@ -11,7 +11,8 @@ function misTorneosService($http, $q){
      registrarTorneo: registrarTorneo,
      consultarTorneo: consultarTorneo,
      actualizarDatos: actualizarDatos,
-     eliminarTorneo:  eliminarTorneo
+     eliminarTorneo:  eliminarTorneo,
+     consultarTorneos: consultarTorneos
 
     }
 
@@ -129,6 +130,32 @@ function misTorneosService($http, $q){
     return promesa;
 
   } 
+
+
+   function consultarTorneos(){
+
+    var defer = $q.defer();
+    var promesa = defer.promise;
+    var info = {"metodo": "consultarTorneos"};
+    $http({
+ 
+         method: "POST",
+         url: "api/controllers/torneos.controller.php",
+         data: "data="+JSON.stringify(info),
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+       }).then(function(res){
+
+           defer.resolve(res.data);
+
+       });
+    
+
+    return promesa;
+
+
+
+   }
 
 
 

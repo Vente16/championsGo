@@ -40,7 +40,7 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     })
     .when("/buscarTorneo", {
         templateUrl: "componentes/torneos/buscarTorneo.html", 
-       //   controller: "controladorPrincipal"
+         controller: "buscarTorneosCtr"
     })
     .when("/miEquipo", {
         templateUrl: "componentes/equipos/miEquipo.html", 

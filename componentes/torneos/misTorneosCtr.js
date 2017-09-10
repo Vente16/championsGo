@@ -29,8 +29,8 @@ function misTorneosCtr($scope, misTorneosService, localStorageService){
 
   	   //alert(id);
   	  var datos = {"metodo": "eliminarTorneo", "id": id};
-
-  	    alertify.confirm('Confirmar acción', '¿Está seguro de elimnar este torneo?', function(){ 
+             
+  	  alertify.confirm('Confirmar acción', '<h4>¿Está seguro(a) de elimnar este torneo?</h4>', function(){ 
   	     
   	        misTorneosService.eliminarTorneo(datos).then(function(respuesta){
                

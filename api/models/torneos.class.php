@@ -16,8 +16,8 @@
 	   public function registrarTorneo($nombre, $equipos, $fecha, $zona, $logo, $id_user){
      
         $sql = "INSERT INTO torneos 
-        (nombre_torneo, numero_equipos, equipos_inscritos, fecha_creacion, zona, logo, id_usuario, estado) 
-        VALUES (:nombre, :equipos, 0, :fecha, :zona, :logo, :id_user, 1)";
+        (nombre_torneo, numero_equipos, equipos_inscritos, fecha_creacion, zona, logo, id_usuario, disponible, estado) 
+        VALUES (:nombre, :equipos, 0, :fecha, :zona, :logo, :id_user, 1, 1)";
         
         $query = $this->con->prepare($sql);
         $query->bindParam(":nombre", $nombre);
@@ -85,14 +85,29 @@
         $query->execute();
 
 
+        }
+
+        public function consultarTorneos(){
+        
+        $sql = "SELECT * FROM torneos WHERE disponible=1 AND estado=1 ORDER BY id_torneo DESC";
+        $query = $this->con->prepare($sql);
+        $query->execute();
+        $json = array();
+
+        foreach ($query as $info) {
+           $json[] = $info;
+        }
+
+        return $json;
+         
         }  
   
 
 
      }
 
-     /*$ob = new torneos();
-     $ob->eliminarTorneo(22);*/
+    /* $ob = new torneos();
+     echo json_encode($ob->consultarTorneos());*/
 
 
  ?>

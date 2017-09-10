@@ -39,6 +39,11 @@
          case 'eliminarTorneo':
            $torneos->eliminarTorneo($datos->id);
           break;
+
+         case 'consultarTorneos':
+           echo json_encode($torneos->consultarTorneos());
+          break;
+          
        	
 
        	default:

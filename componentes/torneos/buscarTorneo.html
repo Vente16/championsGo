@@ -12,22 +12,23 @@
 	        <div id="cuerpo">
 
 		        <center>
-             <h4>Buscar</h4> <input type="text" class="form-control formularios"><br><br>
-               <table class="table table-hover infoT">
+       
+             <h4>Buscar</h4> <input type="text" class="form-control formularios" ng-model="buscar" id="tags"><br><br>
+               <table class="table table-hover infoT" ng-pagination="torneo in informacion | filter: buscar" ng-pagination-size="3">
                	   
                	   <tbody>
                	   	     <tr>
                	   	         <td>
-                               <div>
-                                  <img src="images/liga 1.png" alt="" width="100px">
-                                    <h2 class="nombret">Testing</h2> 
-                               </div>
+                             
+                                    <img src="{{torneo.logo}}" alt="" width="100px">
+                                    <h2 class="nombret">{{torneo.nombre_torneo}}</h2> 
+                              
                              </td>
                	   	     	 <td>
                               <div>
-                                 <p>Número de equipos: 10 </p><br>
-                                 <p>Zona: Medellín</p> <br>
-                                 <p>Equipos inscritos: 5 </p>
+                                 <p>Número de equipos: {{torneo.numero_equipos}} </p><br>
+                                 <p>Zona: {{torneo.zona}}</p> <br>
+                                 <p>Equipos inscritos: {{torneo.equipos_inscritos}} </p>
                               </div>
 
                            </td> 
@@ -37,8 +38,8 @@
 
                            </td> 
                	   	     	 <td>
-                 	   	     	 <a href="#/infoTorneo" class="btn btn-info acciones-iconos"><i class="fa fa-eye"></i></a>
-                             <a href="" class="btn btn-primary acciones-iconos"></i>Solicitar inscripción</a>
+                 	   	     	 <a href="#/infoTorneo/{{torneo.id_torneo}}" class="btn btn-info acciones-iconos"><i class="fa fa-eye"></i></a>
+                             <a href="" class="btn btn-primary acciones-iconos" ng-show="rol == 'tecnico'"></i>Solicitar inscripción</a>
                	   	     	 </td>
                	   	     	 
                	   	     </tr>  
@@ -47,6 +48,7 @@
 
                </table>
               
+               <ng-pagination-control pagination-id="informacion"></ng-pagination-control> 
         
 		     </center>
 		        
