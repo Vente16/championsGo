@@ -12,22 +12,14 @@
           <div id="cuerpo">
 
             <center>
-                    <img src="#"  id="blah" width="20%" class="escondeimg"><br><br>
-              <form name="formulario" ng-model="formulario" ng-submit="registrarEquipo()" novalidate>
-
-                <div class="form-group" ng-class="{ 'has-error': formulario.$submitted && file == undefined
-                        || formulario.logo.$dirty, 'has-success': file != undefined && formulario.logo.$dirty || file != undefined && formulario.$submitted || file != undefined && !formulario.$submitted }">
-                  <label for="logo" class="control-label">Logo del equipo</label>
-                  <input type="file" class="form-control formularios" get-file="file" ng-model="logo" name="logo" id="imgInp" accept="image/*" required ><br>
-
-                  <div class="alert alert-danger alertas" ng-show="formulario.$submitted && file == undefined">Por favor seleccione el logo del equipo</div>
-              </div>
-                    <span id="Fecha" style="display: none">{{fecha | date: 'dd-MM-yyyy'}}</span>
+            
+              <form name="formulario" ng-model="formulario" ng-submit="actualizarEquipo()" ng-repeat="datos in equipo" novalidate>
                   
                <div class="form-group" ng-class="{ 'has-error': formulario.nombre.$invalid && formulario.$submitted ||
-               formulario.nombre.$dirty && formulario.nombre.$error.required && formulario.nombre.$error.required && formulario.$submitted, 'has-success': formulario.nombre.$valid && formulario.nombre.$dirty}">
+               formulario.nombre.$dirty && formulario.nombre.$error.required && formulario.nombre.$error.required && formulario.$submitted, 'has-success': formulario.nombre.$valid && formulario.nombre.$dirty || !formulario.nombre.$dirty}">
                   <label for="nombre" class="control-label">Nombre</label>
-                  <input type="text" class="form-control formularios" ng-model="equipo.nombre" name="nombre"  required><br>
+                  <input type="text" class="form-control formularios" ng-model="datos.nombre_equipo" name="nombre"  
+                  id="nombre" required><br>
 
                    <div class="alert alert-danger alertas" ng-show="formulario.nombre.$error.required && formulario.$submitted ">Por favor rellene el campo</div>
 
@@ -35,8 +27,7 @@
                                
             <div class="form-group" ng-class="{'has-error': formulario.zona.$error.required && formulario.$submitted, 'has-success': formulario.zona.$valid}">
                  <label for="zona" class="control-label">Seleccione el lugar de donde es el equipo</label>
-                  <select class="form-control formularios"  ng-model="equipo.lugar" name="zona" required>
-                       <option value="">-- Selecione zona -- </option>
+                  <select class="form-control formularios"  ng-model="datos.lugar" name="zona" id="lugar" required>
                        <option value="Medellín">Medellín </option>
                        <option value="Barbosa">Barbosa </option>
                        <option value="Copacabana">Copacabana </option>
@@ -55,8 +46,8 @@
 
                  <div class="form-group" ng-class="{'has-error': formulario.equipos.$error.required && formulario.$submitted, 'has-success': formulario.equipos.$valid}">
                  <label for="equipos" class="control-label">Seleccione el número jugadores del equipo</label>
-                  <select class="form-control formularios"  ng-model="equipo.jugadores" name="equipos" required>
-                       <option value="">-- Selecione número de equipos -- </option>
+                  <select class="form-control formularios" ng-model="datos.numero_jugadores" name="equipos" 
+                  id="jugadores" required>
                        <option value="8">8</option>
                        <option value="10">10</option>
                        <option value="12">12</option>

@@ -45,6 +45,12 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     .when("/miEquipo", {
         templateUrl: "componentes/equipos/miEquipo.html", 
         controller: "miEquipoCtr"
+       
+    })
+    .when("/actualizarEquipo/:id", {
+        templateUrl: "componentes/equipos/actualizarEquipo.html", 
+        controller: "actualizarEquipoCtr"
+       
     })
     .when("/solicitudesEquipo", {
         templateUrl: "componentes/equipos/solicitudes.html", 
@@ -60,7 +66,7 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     })
       .when("/miPerfil", {
         templateUrl: "componentes/perfiles/miPerfil.html", 
-       // controller: "nuevoEquipoCtr"
+         controller: "perfilesCtr"
     })
       .when("/cambiarFoto", {
         templateUrl: "componentes/perfiles/cambiarFoto.html", 
