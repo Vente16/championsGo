@@ -30,11 +30,12 @@ function actualizarTorneoCtr($scope, misTorneosService, $routeParams){
           alertify.success('Correcto'); 
           location.href = "http://localhost/championsGo/#/infoTorneo/"+Id;
         });
- 
+      
       });
 
-   }
-      }
+     }
+  
+    }
 
 
 }

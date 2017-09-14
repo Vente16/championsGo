@@ -6276,6 +6276,12 @@ section#perfil{
 
         display: none;
     }
+
+    #foto {
+
+        width: 100%;
+        
+    }
 }
 
 .tabla-equipos {
@@ -6299,5 +6305,27 @@ section#perfil{
 .escondeimg {
 
     display: none;
+}
+
+#div_file i{
+    text-align: center;
+    color:white;
+    position: relative;
+    top: 7px;
+}
+
+div#div_file{
+    width:60px;
+    height: 30px;
+    border-color: solid #5bc0de;
+    background-color: #5bc0de;
+    -webkit-border-radius:10px;
+    -webkit-box-shadow:0px 3px 0px #5bc0de;
+}
+
+input#btn_enviar{
+    opacity: 0;
+    cursor: pointer;
+    width: 40px;
 }
 

@@ -53,6 +53,7 @@ function loginService($http, $q, $location, localStorageService){
     });
       
     return promesa;
+    
    }
 
    function validarSesion(){

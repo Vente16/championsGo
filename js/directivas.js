@@ -15,6 +15,7 @@ app.directive('tooltip', function() {
         
       element.on('change', function(e){
         $parse(attr.getFile).assign(scope, element[0].files[0]);
+        
 
       });  
 

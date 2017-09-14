@@ -13,7 +13,7 @@
 
 	   }
 
-	   public function registrarUsuarios($email, $pass, $nombre, $rol){
+	  public function registrarUsuarios($email, $pass, $nombre, $rol){
        
         $sql = "INSERT INTO usuarios (email, pass, nombre, foto, rol) 
         VALUES (:email, :pass, :nombre, 'images/user.png', :rol)";
@@ -58,14 +58,32 @@
 
      return $json;
 
- 
-
     } 
+
+    public function actualizarFoto($foto, $id_user){
+
+    $sql = "UPDATE usuarios SET foto=:foto WHERE id_usuario=:id_user";
+    $query = $this->con->prepare($sql);
+    $query->bindParam(":foto", $foto);
+    $query->bindParam(":id_user", $id_user);
+    $query->execute();
+
+
+    }
 
 	  
   
-     }
+  }
 
-   /* $usuario = new usuarios();
-    echo json_encode($usuario->consultarUser("jj@gmail.com")); */
+    /*$usuario = new usuarios();
+    $usuario->actualizarFoto("images/user.png", 1);*/
+
+
+
+
+
+
+
+
+    
  ?>
