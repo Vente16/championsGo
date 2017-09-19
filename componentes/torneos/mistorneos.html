@@ -21,17 +21,30 @@
 		               <div ng-show="tam > 0">
 		        	 <div ng-pagination="torneo in mistorneos" ng-pagination-size="1">
 		        	      <div class="torneos">
-		        	        <img ng-src="{{torneo.logo}}" class="imagenTorneo"><br>
-		                    <h3><a href="#/cambiarlogo" class="btn btn-primary">Cambiar logo</a></h3>
+		        	        <img src="{{torneo.logo}}" class="imagenTorneo img{{torneo.id_torneo}}"><br><br>
+		        	        <div ng-controller="logosTorneosCtr">
+			        	         <div id="controles" class="escondeimg">
+	                      			<button class="btn btn-danger" id="cancelar">Cancelar</button>
+	                      			<button class="btn btn-success" ng-click="guardar(torneo.id_torneo)" id="guardar">Guardar</button>
+	                            </div><br>
+
+			        	         <div id="div_file">
+				                   <div class="row">
+				                       <i class="fa fa-camera"></i>
+				                       <input type="file" id="btn_enviar" get-file="logo" accept="image/*">     
+				                    </div>     
+	                            </div>
+		                   </div>
 		        	 	    <h4><strong>Nombre del torneo:</strong> {{torneo.nombre_torneo}} </h4>
 		        	 	    <h4><strong> Cantidad de equipos:</strong> {{torneo.numero_equipos}}</h4>
-		        	 	    <h4><strong> Equipos inscritos:</strong> {{torneo.equipos_inscritos}}</h4><br>
+		        	 	    <h4><strong> Equipos inscritos:</strong> {{torneo.equipos_inscritos}}</h4>
 		        	 	    <a href="#/infoTorneo/{{torneo.id_torneo}}" class="btn btn-info glyphicon glyphicon-search acciones-iconos"></a>
 		        	 	    <a href="#/actualizarTorneo/{{torneo.id_torneo}}" class="btn btn-success glyphicon glyphicon-edit acciones-iconos"></a>
+		        	 	    <a href="#/solicitudesTorneo/{{torneo.id_torneo}}" class="btn btn-primary acciones-iconos"><i class="fa fa-bell"></i></a>
 		        	 	    <button class="btn btn-danger glyphicon glyphicon-trash acciones-iconos" ng-click="eliminarTorneo(torneo.id_torneo)"></button><br><br>
 		        	      </div><br>
 		        	 </div>
-		            <ng-pagination-control pagination-id="mistorneos"></ng-pagination-control> 
+		            <ng-pagination-control pagination-id="mistorneos" id="paginacion"></ng-pagination-control> 
 		            </div>
 		        </center> 
 		        

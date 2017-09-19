@@ -100,6 +100,20 @@
 
         return $json;
          
+        }
+
+        public function cambiarlogo($id_torneo, $logo){
+        
+        $sql = "UPDATE torneos SET logo=:logo WHERE id_torneo=:id_torneo";
+        $query = $this->con->prepare($sql);
+        $query->bindParam(":logo", $logo);
+        $query->bindParam(":id_torneo", $id_torneo);
+        $query->execute();
+
+
+
+
+
         }  
   
 
@@ -107,7 +121,7 @@
      }
 
     /* $ob = new torneos();
-     echo json_encode($ob->consultarTorneos());*/
+     $ob->cambiarlogo(15, "images/Infant-Annihilator.jpg");*/
 
 
  ?>

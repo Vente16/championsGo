@@ -22,7 +22,7 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     	controller: 'nuevoTorneoCtr', 
     	templateUrl: 'componentes/torneos/nuevoTorneo.html'
     })
-    .when("/solicitudesTorneos", {
+    .when("/solicitudesTorneo/:id", {
     	templateUrl: "componentes/torneos/solicitudes.html", 
        //	controller: "controladorPrincipal"
     })

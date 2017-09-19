@@ -21,7 +21,24 @@
    $logo, 
    $_POST['user']);
      
-   } else {
+   } 
+   elseif (isset($_POST['cambiarLogo'])) {
+
+    $letraAleatoria = chr(rand(ord("a"), ord("z")));
+   // Número aleatorio
+    $numeroAleatorio = rand(1, 1000);
+    $combinacion = $letraAleatoria.$numeroAleatorio;
+  // Ruta donde guardaré la imagen.
+    $ruta    = "../../images/".$combinacion;
+    $guardar = $ruta.basename($_FILES["logo"]["name"]);
+    move_uploaded_file($_FILES["logo"]["tmp_name"], $guardar);
+    $logo = "images/".$combinacion.basename($_FILES["logo"]["name"]);
+    $torneos->cambiarlogo($_POST['id'], $logo);
+    echo $logo;
+
+
+   }
+   else {
     
      $datos = json_decode($_POST['data']);
      $metodo = $datos->metodo;

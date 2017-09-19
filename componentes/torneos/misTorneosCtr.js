@@ -17,8 +17,7 @@ function misTorneosCtr($scope, misTorneosService, localStorageService){
         $scope.tam = torneos.length;
         $scope.mistorneos = torneos;
 
-      }); 
-
+      });
 
      }
 
@@ -40,13 +39,15 @@ function misTorneosCtr($scope, misTorneosService, localStorageService){
               
   	        });
 
-  	     },
+  	  },
   	 	function(){ 
   	 
-  	     });
+  	  });
 
 
      } 
+
+     
 
 
 }

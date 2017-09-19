@@ -39,7 +39,8 @@
                            </td> 
                	   	     	 <td>
                  	   	     	 <a href="#/infoTorneo/{{torneo.id_torneo}}" class="btn btn-info acciones-iconos"><i class="fa fa-eye"></i></a>
-                             <a href="" class="btn btn-primary acciones-iconos" ng-show="rol == 'tecnico'"></i>Solicitar inscripción</a>
+                             <a href="" class="btn btn-primary acciones-iconos {{torneo.id_torneo}}" ng-show="rol == 'tecnico'" ng-click="solicitarTorneo(torneo.id_torneo)">Solicitar inscripción</a>
+                             <a href="" class="btn btn-default s{{torneo.id_torneo}}" ng-click="cancelar(torneo.id_torneo)" style="display: none">Solicitado</a>
                	   	     	 </td>
                	   	     	 
                	   	     </tr>  

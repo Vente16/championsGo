@@ -12,7 +12,8 @@ function misTorneosService($http, $q){
      consultarTorneo: consultarTorneo,
      actualizarDatos: actualizarDatos,
      eliminarTorneo:  eliminarTorneo,
-     consultarTorneos: consultarTorneos
+     consultarTorneos: consultarTorneos,
+     cambiarLogo: cambiarLogo
 
     }
 
@@ -156,6 +157,28 @@ function misTorneosService($http, $q){
 
 
    }
+
+   function cambiarLogo(infotorneo){
+     
+    var defer = $q.defer();
+    var promesa = defer.promise;
+
+    var fd = new FormData();
+     fd.append('logo', infotorneo.logo);
+     fd.append('id', infotorneo.id);
+     fd.append('cambiarLogo', "cambiarlogo")
+     $http.post("api/controllers/torneos.controller.php", fd, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined,'Process-Data': false}
+     })
+     .then(function(res){
+         defer.resolve(res.data);
+     });
+
+      return promesa;
+
+   }
+
 
 
 
