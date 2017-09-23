@@ -1,18 +1,32 @@
 
 app.controller('registroUsuariosCtr', registroUsuariosCtr);
 
-registroUsuariosCtr.$inject = ['$scope'];
+registroUsuariosCtr.$inject = ['$scope', 'loginService', '$location'];
 
-function registroUsuariosCtr($scope){
-
- $scope.validarCorreo = /^[_a-zA-Z-0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/;
+function registroUsuariosCtr($scope, loginService, $location){
 
 
- $scope.registrarUsuario = function(){
 
- 	 alert("Hola");
- }
+	/*$scope.usuario = {};
+	$scope.usuario.email = "";
+	$scope.usuario.pass = "";
+	$scope.usuario.nombre = "";*/
 
 
+
+  $scope.registrar = function(){
+
+  	//console.log($scope.usuario);
+
+    loginService.registrarUsuario($scope.usuario).then(function(datos){
+
+      console.log(datos);
+
+      alertify.success("Usuario registrado correctamente, ya puedes acceder a la aplicación");
+      $location.path("/");
+
+    });
+
+  }
 
 }

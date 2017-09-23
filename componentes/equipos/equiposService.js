@@ -7,12 +7,38 @@ function equiposService($q, $http){
    
   return {
     
+    consultarEquipos: consultarEquipos,
     consultarEquipoUser: consultarEquipoUser,
     registarEquipo: registarEquipo,
     consultarEquipo: consultarEquipo,
     actualizarEquipo: actualizarEquipo,
-    eliminarEquipo: eliminarEquipo 
+    eliminarEquipo: eliminarEquipo,
+    cambiarLogo : cambiarLogo 
   }
+
+
+
+function consultarEquipos(){
+
+   var def = $q.defer();
+   var promesa = def.promise;
+   var datos = {"metodo": "consultarEquipos"};
+
+     $http({
+      
+       method: "POST",
+       url: "api/controllers/equipos.controller.php",
+       data: "data="+JSON.stringify(datos),
+       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+     }).then(function(res){
+
+        def.resolve(res.data);
+     }); 
+
+      return promesa;
+
+ }
 
 
  function consultarEquipoUser(datos){
@@ -133,6 +159,33 @@ function equiposService($q, $http){
 
 
  }  
+
+
+ function cambiarLogo(equipo){
+
+   var def = $q.defer();
+   var promesa = def.promise;
+
+    var fd = new FormData();
+       fd.append('logo', equipo.logo);
+       fd.append('cambiarLogo', "cambiarLogo");
+       fd.append('id', equipo.id);
+       $http.post("api/controllers/equipos.controller.php", fd, {
+           transformRequest: angular.identity,
+           headers: {'Content-Type': undefined,'Process-Data': false}
+       })
+       .then(function(res){
+          def.resolve(res.data);
+       }); 
+
+
+      return promesa;
+
+
+ 
+   }
+
+
 
 
  

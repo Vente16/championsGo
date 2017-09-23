@@ -29,15 +29,31 @@
                	   	     <tr>
                	   	         <td>
                             
-                            <img src="{{equipo.logo_equipo}}" alt="" width="100px"><br><br>
+                            <img src="{{equipo.logo_equipo}}" alt="" width="150px" class="imagenEquipo"><br><br>
 
-                            <a class="btn btn-primary acciones-iconos" href="#"><i class="fa fa-file-image-o"></i></a>
+                           <div ng-controller="logosEquiposCtr">
+                               <div id="controles" class="escondeimg">
+                                <button class="btn btn-danger" id="cancelar">Cancelar</button>
+                                <button class="btn btn-success" ng-click="guardar(equipo.id_equipo)" id="guardar">Guardar</button>
+                               </div><br>
+
+                            <div id="div_file" align="center">
+                               
+                               <i class="fa fa-camera"></i>
+                               <input type="file" id="btn_enviar" get-file="logo" accept="image/*">        
+                              </div>
+                            </div>
                           
                              </td>
 
                              <td>
                                  <h3 class="nombret">{{equipo.nombre_equipo}}</h3>
                              </td>
+
+                             <td>
+                               
+                             </td>
+                             
                	   	     	 <td>
                               <div>
                                  <p>Número de jugadores: {{equipo.numero_jugadores}} </p><br>
@@ -46,12 +62,12 @@
                               </div>
 
                            </td> 
-                           <td>
+                           <td class="infoMas">
                                <a href="">Tabla de posiciones</a><br><br>
                                <a href="">Partidos</a>
 
                            </td> 
-               	   	     	 <td>
+               	   	     	 <td ng-if="idComparar == compara" class="infoMas">
                  	   	     	 <a href="#/actualizarEquipo/{{equipo.id_equipo}}" class="btn btn-success glyphicon glyphicon-edit acciones-iconos"></a>
                  	   	     	 <button ng-click="eliminarEquipo(equipo.id_equipo)" class="btn btn-danger glyphicon glyphicon-trash  acciones-iconos"></button>
                	   	     	 </td>

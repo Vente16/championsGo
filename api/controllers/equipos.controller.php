@@ -14,12 +14,27 @@
    $equipos->registrarEquipo($_POST['nombre'],
    $_POST['jugadores'], $_POST['fecha'], $_POST['lugar'], $logo, $_POST['user']);
 
-  } else {
+  } elseif(isset($_POST['cambiarLogo'])){
+
+   $ruta    = "../../images/";
+   $guardar = $ruta.basename($_FILES["logo"]["name"]);
+   move_uploaded_file($_FILES["logo"]["tmp_name"], $guardar);
+   $logo = "images/".basename($_FILES["logo"]["name"]);
+   $equipos->cambiarLogo($_POST['id'], $logo);
+   echo "1";
+
+  }
+  else {
 
   $data = json_decode($_POST['data']);
   $metodo = $data->metodo;
 
   switch ($metodo) {
+
+
+   case 'consultarEquipos':
+      echo json_encode($equipos->consultarEquipos());
+      break;
 
   	case 'consultarEquipoUser':
   		echo json_encode($equipos->consultarEquipoUser($data->id));

@@ -9,6 +9,10 @@ function miEquipoCtr($scope, equiposService, localStorageService, $location){
 
    var datos = {"metodo": "consultarEquipoUser", "id": id};
 
+   $scope.idComparar = id;
+
+
+
    consulta();
 
    function consulta(){
@@ -19,6 +23,11 @@ function miEquipoCtr($scope, equiposService, localStorageService, $location){
    	   // console.log($scope.tam);  
         $scope.equipoInfo = result;
         console.log($scope.equipoInfo);
+
+        $scope.compara = result[0].id_usuario;
+
+        console.log($scope.compara);
+        console.log($scope.idComparar);
 
      });
 
@@ -37,8 +46,7 @@ function miEquipoCtr($scope, equiposService, localStorageService, $location){
 
 
    alertify.confirm('Confirmar acción', '<h5>¿Está seguro de eliminar a este equipo?</h5>'+alerta,
-     function(){ 
-          
+     function(){     
      equiposService.eliminarEquipo(enviar).then(function(resp){
          
        consulta();  

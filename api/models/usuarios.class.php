@@ -15,24 +15,23 @@
 
 	  public function registrarUsuarios($email, $pass, $nombre, $rol){
        
-        $sql = "INSERT INTO usuarios (email, pass, nombre, foto, rol) 
-        VALUES (:email, :pass, :nombre, 'images/user.png', :rol)";
-        $password = md5($pass);
-        $query = $this->con->prepare($sql);
-        $query->bindParam(":email", $email);
-        $query->bindParam(":pass", $password);
-        $query->bindParam(":nombre", $nombre);
-        $query->bindParam(":rol", $rol);
-        $query->execute();
+      $sql = "INSERT INTO usuarios (email, pass, nombre, foto, rol) 
+      VALUES (:email, :pass, :nombre, 'images/user.png', :rol)";
+      $query = $this->con->prepare($sql);
+      $query->bindParam(":email", $email);
+      $query->bindParam(":pass", $pass);
+      $query->bindParam(":nombre", $nombre);
+      $query->bindParam(":rol", $rol);
+      $query->execute();
     
 	   }
 
 	   public function login($email, $pass){
 
-      $pass1 = md5($pass);
-      $sql = "SELECT * FROM usuarios WHERE email=:email AND pass='$pass1'";
+      $sql = "SELECT * FROM usuarios WHERE email=:email AND pass=:pass";
       $query = $this->con->prepare($sql);
       $query->bindParam(":email", $email);
+      $query->bindParam(":pass", $pass);
       $query->execute();
       $int = 0;
       foreach ($query as $key) {

@@ -14,6 +14,7 @@ function logosTorneosCtr($scope, misTorneosService, localStorageService, $locati
     //console.log(imagen);
     
     var infoT = {"logo": $scope.logo, "id": id};
+      alertify.success('Has cambiado el logo correctamente');
     //console.log(infoT);
   
     misTorneosService.cambiarLogo(infoT).then(function(cambio){
@@ -21,10 +22,9 @@ function logosTorneosCtr($scope, misTorneosService, localStorageService, $locati
      console.log(cambio);
 
      $scope.torneo.logo = cambio;
-    
+     
   
-    });
-
+    }); 
 
 
    }

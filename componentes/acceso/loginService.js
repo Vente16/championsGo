@@ -7,7 +7,8 @@ function loginService($http, $q, $location, localStorageService){
    return {
     login: login,
     consultarUser: consultarUser,
-    validarSesion: validarSesion
+    validarSesion: validarSesion,
+    registrarUsuario: registrarUsuario
 
    }
 
@@ -55,6 +56,34 @@ function loginService($http, $q, $location, localStorageService){
     return promesa;
     
    }
+
+    function registrarUsuario(usuario){
+    
+    var defer = $q.defer();
+    var promesa = defer.promise;
+    
+    usuario.metodo = "registrarUsuario";
+      
+     $http({
+ 
+         method: "POST",
+         url: "api/controllers/usuarios.controller.php",
+         data: "data="+JSON.stringify(usuario),
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+       }).then(function(res){
+            
+        defer.resolve(res.data);
+
+    });
+      
+    return promesa;
+    
+   }
+
+
+
+
 
    function validarSesion(){
    

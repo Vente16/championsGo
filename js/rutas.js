@@ -10,8 +10,8 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
       templateUrl: "templates/home.html", 
       controller: "inicioCtr"
     })
-     .when("/registro",{
-      templateUrl: "componentes/acceso/registroUsuarios.html", 
+     .when("/nuevoUsuario",{
+      templateUrl: "componentes/acceso/nuevoUser.html", 
       controller: "registroUsuariosCtr"
     })
     .when("/misTorneos",{
@@ -58,7 +58,7 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     })
     .when("/buscarEquipos", {
         templateUrl: "componentes/equipos/buscarEquipos.html", 
-       //   controller: "controladorPrincipal"
+        controller: "buscarEquiposCtr"
     })
      .when("/nuevoEquipo", {
         templateUrl: "componentes/equipos/nuevoEquipo.html", 

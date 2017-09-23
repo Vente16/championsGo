@@ -31,7 +31,12 @@
       case 'consultarUser':
         echo json_encode($usuario->consultarUser($datos->email));
         break;
-        
+
+      case 'registrarUsuario':
+        $usuario->registrarUsuarios($datos->email, $datos->pass, $datos->nombre, $datos->rol);
+        echo "Bien";
+        break;
+  
     	default:
     		echo "Ningún método ha sido llamado...";
     		break;

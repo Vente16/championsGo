@@ -102,6 +102,17 @@
 
         }
 
+        public function cambiarLogo($id_equipo, $logo){
+
+        $sql = "UPDATE equipos SET logo_equipo=:logo WHERE id_equipo=:id_equipo"; 
+        $query = $this->con->prepare($sql);
+        $query->bindParam(":id_equipo", $id_equipo);
+        $query->bindParam(":logo", $logo);
+        $query->execute();
+
+
+        }
+
 
 
 
@@ -109,7 +120,7 @@
 
 
       /*$ob = new equipos();
-      $ob->actulizarEquipo("Prado FC", 16, "Medellín", 7);*/
+      $ob->cambiarLogo(3, "images/liga 1.png");*/
 
 
 
