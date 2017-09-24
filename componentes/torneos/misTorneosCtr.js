@@ -1,11 +1,18 @@
 // mi componente - controlador
 app.controller("misTorneosCtr", misTorneosCtr);
 
-misTorneosCtr.$inject = ['$scope', 'misTorneosService', 'localStorageService'];
+misTorneosCtr.$inject = ['$scope', 'misTorneosService', 'localStorageService', 
+'permisosService', 'loginService'];
 
-function misTorneosCtr($scope, misTorneosService, localStorageService){
+function misTorneosCtr($scope, misTorneosService, localStorageService, permisosService, loginService){
       
-       
+    // Validando sí existe la sesión.  
+    loginService.sesionVacia();
+    
+    // Validamos que el rol se adminTorneo
+    permisosService.torneos();
+
+    // Función para consultar los torneos de un usuario.   
     function consultar(){
 
        var ident = localStorageService.get("user");
@@ -20,10 +27,15 @@ function misTorneosCtr($scope, misTorneosService, localStorageService){
       });
 
      }
-
-   consultar();
-
   
+    // Se ejecuta la función cuando exista la sesión 
+   if (localStorageService.get("user") != null) {
+
+     consultar(); 
+
+   }
+
+    // Eliminar un torneo de un usuario.
     $scope.eliminarTorneo = function(id){
 
   	   //alert(id);

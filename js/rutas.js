@@ -72,6 +72,10 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
         templateUrl: "componentes/perfiles/cambiarFoto.html", 
        // controller: "nuevoEquipoCtr"
     })
+       .when("/error", {
+        templateUrl: "componentes/comunes/error.html", 
+        controller: "errorCtr"
+    })
     .when("/404", {
         templateUrl: "componentes/comunes/404.tmpl.html", 
         controller: "controladorPrincipal"

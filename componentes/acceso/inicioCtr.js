@@ -4,7 +4,7 @@ inicioCtr.$inject = ['$scope', 'loginService', 'localStorageService'];
 
 function inicioCtr($scope, loginService, localStorageService){
 
-  loginService.validarSesion();
+  
 
   if(localStorageService.get("email") == null){
     

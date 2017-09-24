@@ -13,7 +13,8 @@ function misTorneosService($http, $q){
      actualizarDatos: actualizarDatos,
      eliminarTorneo:  eliminarTorneo,
      consultarTorneos: consultarTorneos,
-     cambiarLogo: cambiarLogo
+     cambiarLogo: cambiarLogo,
+    
 
     }
 
@@ -179,6 +180,8 @@ function misTorneosService($http, $q){
 
    }
 
+
+  
 
 
 

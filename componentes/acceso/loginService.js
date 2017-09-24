@@ -8,7 +8,8 @@ function loginService($http, $q, $location, localStorageService){
     login: login,
     consultarUser: consultarUser,
     validarSesion: validarSesion,
-    registrarUsuario: registrarUsuario
+    registrarUsuario: registrarUsuario,
+    sesionVacia, sesionVacia
 
    }
 
@@ -88,21 +89,32 @@ function loginService($http, $q, $location, localStorageService){
    function validarSesion(){
    
     var user = localStorageService.get("email");
+    var info = localStorageService.get("user");
 
-    if (user == null) {
+    if (user == null || info == null) {
       
       $location.path("/");
+      localStorageService.remove();
 
-    }else {
-
-      $location.path("/inicio");  
+    }
+    else{
+        $location.path("/inicio");
     }
     
-  
+   }
 
-   } 
+   function sesionVacia(){
+    var user = localStorageService.get("email");
+    var info = localStorageService.get("user");
+
+    if (user == null || info == null) {
+      $location.path("/");
+      localStorageService.remove();
+
+    }
 
 
+   }
 
 
 
